@@ -1,4 +1,4 @@
-# A JSX Primer Module#76
+# A JSX Primer Module#76 :skull:
 
 [![hackmd-github-sync-badge](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w/badge)](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w)
 
@@ -76,12 +76,3 @@ const Button = () => {
   return <button className="button">A button</button>
 }
 ```
-In order to import the stylesheet into your React project this is how it's done so that WebPack will bundle it up.
-
-`import '.style.css'`
-
-To add an inline style to an element:
-`const Button = () => {
-  return <button style={{ backgroundColor: 'yellow' }}>A button</button>
-}
-`

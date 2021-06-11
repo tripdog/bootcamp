@@ -1,4 +1,4 @@
-# A JSX Primer Module#76
+# A JSX Primer Module#76 :skull:
 
 [![hackmd-github-sync-badge](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w/badge)](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w)
 

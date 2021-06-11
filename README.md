@@ -4,7 +4,7 @@
 
 
 Defining an H1 conataining a string looks like the below snippet. It does look like a strange combination of JavaScript and HTML, but it's actually all JS.
-`const element = <h1>Hello, world!`
+```const element = <h1>Hello, world!```
 
 Expressions in JSX can easily take HTML attributes:
 ```
@@ -199,7 +199,7 @@ return (
   </div>
 )
 ```
-Now instead of using a for loop we can use the .map metho instead and reduce the amount of code written. It's much cleaner now.
+Now instead of using a for loop we can use the .map method instead and reduce the amount of code written. It's much cleaner now.
 ```
 const elements = ['one', 'two', 'three'];
 return (

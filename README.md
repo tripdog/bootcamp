@@ -1,5 +1,8 @@
 # A JSX Primer Module#76
 
+[![hackmd-github-sync-badge](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w/badge)](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w)
+
+
 Defining an H1 conataining a string looks like the below snippet. It does look like a strange combination of JavaScript and HTML, but it's actually all JS.
 `const element = <h1>Hello, world!`
 

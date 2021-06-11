@@ -1,4 +1,4 @@
-# A JSX Primer Module#76 :skull:
+# A JSX Primer Module#76 :rocket:
 
 [![hackmd-github-sync-badge](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w/badge)](https://hackmd.io/mCh4Q1KMRdiSjC7U-xrA7w)
 
@@ -68,7 +68,7 @@ Basics:
 ---
 ## CSS in JSX
 
-The easiest way to add CSS to JSX is to simply use classes. 
+:heavy_check_mark: The easiest way to add CSS to JSX is to simply use classes. 
 
 Here's an example of how it will look when you apply classes to a bit of JSX with html syntax:
 ```
@@ -76,3 +76,20 @@ const Button = () => {
   return <button className="button">A button</button>
 }
 ```
+:heavy_check_mark: A second method is to write the CSS inline by attaching it directly to the JSX element.
+
+`const Button = () => {
+  return <button style={{ backgroundColor: 'yellow' }}>A button</button>
+}
+`
+The mustache (double curly braces) signifies that we are passing in a JS object.
+
+
+
+
+:fire: Yet another way is to create a variable for the style and pass it into an element like this:
+`const buttonStyle = { backgroundColor: 'yellow' }
+const Button = () => {
+  return <button style={buttonStyle}>A button</button>
+}
+`

@@ -68,7 +68,7 @@ Basics:
 ---
 ## CSS in JSX
 
-:heavy_check_mark: The easiest way to add CSS to JSX is to simply use classes. 
+🟢 The easiest way to add CSS to JSX is to simply use classes. 
 
 Here's an example of how it will look when you apply classes to a bit of JSX with html syntax:
 ```
@@ -76,20 +76,106 @@ const Button = () => {
   return <button className="button">A button</button>
 }
 ```
-:heavy_check_mark: A second method is to write the CSS inline by attaching it directly to the JSX element.
+🟢 A second method is to write the CSS inline by attaching it directly to the JSX element.
 
-`const Button = () => {
-  return <button style={{ backgroundColor: 'yellow' }}>A button</button>
+``` 
+const Button = () => {
+return <button style={{ backgroundColor: 'yellow' }}>A button</button>
 }
-`
+```
 The mustache (double curly braces) signifies that we are passing in a JS object.
 
 
-
-
-:fire: Yet another way is to create a variable for the style and pass it into an element like this:
+🟢 Yet another way is to create a variable for the style and pass it into an element like this:
 `const buttonStyle = { backgroundColor: 'yellow' }
 const Button = () => {
   return <button style={buttonStyle}>A button</button>
 }
 `
+
+:fire: Styles have the benefit of being local to the component, and they cannot leak to other components in other parts of the app, something that using classes and an external CSS file can’t provide.
+
+Check out these two sites for more about styling components and advanced CSS in JS.
+
+
+:small_blue_diamond: [Styled Components](https://styled-components.com/)
+
+:small_blue_diamond: [Emotion](https://emotion.sh/)
+
+## JSX auto escapes
+
+JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
+
+In order to overcome these issues we need to move HTML entities outside the expression. 
+
+```<p>{'&copy; 2017'}</p>```
+This doesn't work, because it's escaped.
+
+So we take this approach to fix the issue.
+```<p>&copy; 2017</p>```
+the entity is moved outside the expression.
+
+Probably the best way, is to just look up the Unicode string and use that instead.
+
+```<p>{'\u00A9 2017'}</p>```
+
+## White space in JSX
+
+To add white space in JSX there are 2 rules:
+1. If you have a bunch of spaces between elements in the same line, it's trimmed to 1 single space.
+2. Verical spaces are totally eliminated
+
+Examples:
+```
+<p>
+  Something
+  becomes
+  this
+</p>
+```
+Becomes
+```
+<p>Somethingbecomesthis</p>
+```
+So what about when we NEED to add whitespace?
+```
+<p>
+  Something
+  {' '}becomes
+  {' '}this
+</p>
+```
+To address this we add space inside of the expression as in the above example.
+
+## Adding comments in JSX
+
+Comments in JSX are the same as in regular Javascript //
+
+## Spread attributes
+It's common to assign variables to attributes in JSX have a look at the examples below:
+
+Instead of doing it manually:
+```
+<div>
+  <BlogPost title={data.title} date={data.date} />
+</div>
+```
+Use the spread operator to clone the data into your element.
+```
+<div>
+  <BlogPost {...data} />
+</div>
+```
+## Writing Loops in JSX
+
+If you have a set of elements you need to loop through to generate a JSX partial, you create a loop, and then add JSX to an array.
+```
+const elements = [] //..some array
+
+const items = []
+
+for (const [index, value] of elements.entries()) {
+  items.push(<Element key={index} />)
+}
+```
+When rendering JSX you can embed the items array const items = 

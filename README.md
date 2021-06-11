@@ -78,52 +78,57 @@ const Button = () => {
 ```
 🟢 A second method is to write the CSS inline by attaching it directly to the JSX element.
 
-``` 
+```
 const Button = () => {
-return <button style={{ backgroundColor: 'yellow' }}>A button</button>
+  return <button style={{ backgroundColor: 'yellow' }}>A button</button>
 }
 ```
 The mustache (double curly braces) signifies that we are passing in a JS object.
 
 
 🟢 Yet another way is to create a variable for the style and pass it into an element like this:
-`const buttonStyle = { backgroundColor: 'yellow' }
+
+```
+const buttonStyle = { backgroundColor: 'yellow' }
 const Button = () => {
   return <button style={buttonStyle}>A button</button>
 }
-`
-
+```
 :fire: Styles have the benefit of being local to the component, and they cannot leak to other components in other parts of the app, something that using classes and an external CSS file can’t provide.
 
-Check out these two sites for more about styling components and advanced CSS in JS.
+For more advanced needs, CSS-in-JS solutions like Styled Components or Emotion are optimal.
 
+:large_blue_diamond: [Styled Components](https://styled-components.com/)
 
-:small_blue_diamond: [Styled Components](https://styled-components.com/)
-
-:small_blue_diamond: [Emotion](https://emotion.sh/)
+:large_blue_diamond: [Emotion](https://emotion.sh/)
 
 ## JSX auto escapes
 
 JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
 
-In order to overcome these issues we need to move HTML entities outside the expression. 
-
-```<p>{'&copy; 2017'}</p>```
+In order to overcome these issues we need to move HTML entities outside the expression.
+```
+<p>{'&copy; 2017'}</p>
+```
 This doesn't work, because it's escaped.
 
-So we take this approach to fix the issue.
-```<p>&copy; 2017</p>```
-the entity is moved outside the expression.
+So we take this approach to fix the issue. the entity is moved outside the expression.
+```
+<p>&copy; 2017</p>
+```
+
 
 Probably the best way, is to just look up the Unicode string and use that instead.
-
-```<p>{'\u00A9 2017'}</p>```
-
+```
+<p>{'\u00A9 2017'}</p>
+```
 ## White space in JSX
 
 To add white space in JSX there are 2 rules:
-1. If you have a bunch of spaces between elements in the same line, it's trimmed to 1 single space.
-2. Verical spaces are totally eliminated
+
+1.If you have a bunch of spaces between elements in the same line, it's trimmed to 1 single space.
+
+2.Verical spaces are totally eliminated
 
 Examples:
 ```
@@ -146,12 +151,11 @@ So what about when we NEED to add whitespace?
 </p>
 ```
 To address this we add space inside of the expression as in the above example.
-
-## Adding comments in JSX
+Adding comments in JSX
 
 Comments in JSX are the same as in regular Javascript //
+Spread attributes
 
-## Spread attributes
 It's common to assign variables to attributes in JSX have a look at the examples below:
 
 Instead of doing it manually:
@@ -169,8 +173,8 @@ Use the spread operator to clone the data into your element.
 ## Writing Loops in JSX
 
 If you have a set of elements you need to loop through to generate a JSX partial, you create a loop, and then add JSX to an array.
-```
-const elements = [] //..some array
+
+```const elements = [] //..some array
 
 const items = []
 
@@ -178,4 +182,33 @@ for (const [index, value] of elements.entries()) {
   items.push(<Element key={index} />)
 }
 ```
-When rendering JSX you can embed the items array const items = 
+
+When rendering JSX you can embed the items array simply by wrapping it up with curly braces:
+```
+const elements = ['one', 'two', 'three'];
+
+const items = []
+
+for (const [index, value] of elements.entries()) {
+  items.push(<li key={index}>{value}</li>)
+}
+
+return (
+  <div>
+    {items}
+  </div>
+)
+```
+Now instead of using a for loop we can use the .map metho instead and reduce the amount of code written. It's much cleaner now.
+```
+const elements = ['one', 'two', 'three'];
+return (
+  <ul>
+    {elements.map((value, index) => {
+      return <li key={index}>{value}</li>
+    })}
+  </ul>
+  ```
+)
+
+---

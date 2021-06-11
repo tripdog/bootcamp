@@ -76,3 +76,12 @@ const Button = () => {
   return <button className="button">A button</button>
 }
 ```
+In order to import the stylesheet into your React project this is how it's done so that WebPack will bundle it up.
+
+`import '.style.css'`
+
+To add an inline style to an element:
+`const Button = () => {
+  return <button style={{ backgroundColor: 'yellow' }}>A button</button>
+}
+`

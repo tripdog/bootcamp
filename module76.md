@@ -142,7 +142,7 @@ Examples:
 </p>
 ```
 Becomes
-```htmlembedded=
+```htmlembedded
 <p>Somethingbecomesthis</p>
 ```
 So what about when we NEED to add whitespace?

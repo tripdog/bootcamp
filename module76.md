@@ -74,14 +74,14 @@ Basics:
 🟢 The easiest way to add CSS to JSX is to simply use classes. 
 
 Here's an example of how it will look when you apply classes to a bit of JSX with html syntax:
-```jsx=
+```jsx
 const Button = () => {
   return <button className="button">A button</button>
 }
 ```
 🟢 A second method is to write the CSS inline by attaching it directly to the JSX element.
 
-```jsx=
+```jsx
 const Button = () => {
   return <button style={{ backgroundColor: 'yellow' }}>A button</button>
 }
@@ -91,7 +91,7 @@ The mustache (double curly braces) signifies that we are passing in a JS object.
 
 🟢 Yet another way is to create a variable for the style and pass it into an element like this:
 
-```jsx=
+```jsx
 const buttonStyle = { backgroundColor: 'yellow' }
 const Button = () => {
   return <button style={buttonStyle}>A button</button>
@@ -110,19 +110,19 @@ For more advanced needs, CSS-in-JS solutions like Styled Components or Emotion a
 JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
 
 In order to overcome these issues we need to move HTML entities outside the expression.
-```htmlmixed=
+```htmlmixed
 <p>{'&copy; 2017'}</p>
 ```
 This doesn't work, because it's escaped.
 
 So we take this approach to fix the issue. the entity is moved outside the expression.
-```htmlembedded=
+```htmlembedded
 <p>&copy; 2017</p>
 ```
 
 
 Probably the best way, is to just look up the Unicode string and use that instead.
-```htmlmixed=
+```htmlmixed
 <p>{'\u00A9 2017'}</p>
 ```
 ## White space in JSX
@@ -134,7 +134,7 @@ To add white space in JSX there are 2 rules:
 2.Verical spaces are totally eliminated
 
 Examples:
-```htmlembedded=
+```htmlembedded
 <p>
   Something
   becomes
@@ -146,7 +146,7 @@ Becomes
 <p>Somethingbecomesthis</p>
 ```
 So what about when we NEED to add whitespace?
-```htmlmixed=
+```htmlmixed
 <p>
   Something
   {' '}becomes
@@ -162,13 +162,13 @@ Spread attributes
 It's common to assign variables to attributes in JSX have a look at the examples below:
 
 Instead of doing it manually:
-```htmlmixed=
+```htmlmixed
 <div>
   <BlogPost title={data.title} date={data.date} />
 </div>
 ```
 Use the spread operator to clone the data into your element.
-```htmlmixed=
+```htmlmixed
 <div>
   <BlogPost {...data} />
 </div>
@@ -177,7 +177,7 @@ Use the spread operator to clone the data into your element.
 
 If you have a set of elements you need to loop through to generate a JSX partial, you create a loop, and then add JSX to an array.
 
-```jsx=
+```jsx
 const elements = [] //..some array
 
 const items = []
@@ -188,7 +188,7 @@ for (const [index, value] of elements.entries()) {
 ```
 
 When rendering JSX you can embed the items array simply by wrapping it up with curly braces:
-```jsx=
+```jsx
 const elements = ['one', 'two', 'three'];
 
 const items = []
@@ -204,7 +204,7 @@ return (
 )
 ```
 Now instead of using a for loop we can use the .map method instead and reduce the amount of code written. It's much cleaner now.
-```jsx=
+```jsx
 const elements = ['one', 'two', 'three'];
 return (
   <ul>

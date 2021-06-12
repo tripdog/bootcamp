@@ -110,19 +110,19 @@ For more advanced needs, CSS-in-JS solutions like Styled Components or Emotion a
 JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
 
 In order to overcome these issues we need to move HTML entities outside the expression.
-```javascript
+```HTML
 <p>{'&copy; 2017'}</p>
 ```
 This doesn't work, because it's escaped.
 
 So we take this approach to fix the issue. the entity is moved outside the expression.
-```html
+```HTML
 <p>&copy; 2017</p>
 ```
 
 
 Probably the best way, is to just look up the Unicode string and use that instead.
-```html
+```HTML
 <p>{'\u00A9 2017'}</p>
 ```
 ## White space in JSX
@@ -134,7 +134,7 @@ To add white space in JSX there are 2 rules:
 2.Verical spaces are totally eliminated
 
 Examples:
-```html
+```HTML
 <p>
   Something
   becomes

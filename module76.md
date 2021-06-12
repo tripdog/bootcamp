@@ -146,7 +146,7 @@ Becomes
 <p>Somethingbecomesthis</p>
 ```
 So what about when we NEED to add whitespace?
-```javascript
+```json
 <p>
   Something
   {' '}becomes

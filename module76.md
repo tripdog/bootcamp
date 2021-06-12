@@ -5,12 +5,12 @@
 
 Defining an H1 conataining a string looks like the below snippet. It does look like a strange combination of JavaScript and HTML, but it's actually all JS.
 
-```javascript=
+```javascript
 const element = <h1>Hello, world!
 ```
 
 Expressions in JSX can easily take HTML attributes:
-```javascript=
+```javascript
 const myId = 'test'
 const element = <h1 id={myId}>Hello, world!</h1> 
 ```

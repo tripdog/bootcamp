@@ -116,13 +116,13 @@ In order to overcome these issues we need to move HTML entities outside the expr
 This doesn't work, because it's escaped.
 
 So we take this approach to fix the issue. the entity is moved outside the expression.
-```htmlembedded
+```html
 <p>&copy; 2017</p>
 ```
 
 
 Probably the best way, is to just look up the Unicode string and use that instead.
-```htmlmixed
+```html
 <p>{'\u00A9 2017'}</p>
 ```
 ## White space in JSX
@@ -134,7 +134,7 @@ To add white space in JSX there are 2 rules:
 2.Verical spaces are totally eliminated
 
 Examples:
-```htmlembedded
+```html
 <p>
   Something
   becomes
@@ -142,11 +142,11 @@ Examples:
 </p>
 ```
 Becomes
-```htmlembedded
+```html
 <p>Somethingbecomesthis</p>
 ```
 So what about when we NEED to add whitespace?
-```htmlmixed
+```jsx
 <p>
   Something
   {' '}becomes
@@ -162,13 +162,13 @@ Spread attributes
 It's common to assign variables to attributes in JSX have a look at the examples below:
 
 Instead of doing it manually:
-```htmlmixed
+```jsx
 <div>
   <BlogPost title={data.title} date={data.date} />
 </div>
 ```
 Use the spread operator to clone the data into your element.
-```htmlmixed
+```jsx
 <div>
   <BlogPost {...data} />
 </div>

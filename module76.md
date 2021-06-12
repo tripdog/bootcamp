@@ -110,7 +110,7 @@ For more advanced needs, CSS-in-JS solutions like Styled Components or Emotion a
 JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
 
 In order to overcome these issues we need to move HTML entities outside the expression.
-```htmlmixed
+```html
 <p>{'&copy; 2017'}</p>
 ```
 This doesn't work, because it's escaped.

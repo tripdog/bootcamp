@@ -39,7 +39,7 @@ Note, a browser **cannot** execute javascript files contanining JSX. Therefor it
 JSX is optional because to every JSX line, a corresponding plain JS alternative is available. Here are two examples showing how they relate to each other.
 
 **Plain JS**
-```javascript=
+```javascript
 ReactDOM.render(
   React.DOM.div(
     { id: 'test' },
@@ -50,7 +50,7 @@ ReactDOM.render(
 )
 ```
 **JSX**
-```jsx=
+```jsx
 ReactDOM.render(
   <div id="test">
     <h1>A title</h1>

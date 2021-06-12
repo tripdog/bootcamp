@@ -5,10 +5,12 @@
 
 Defining an H1 conataining a string looks like the below snippet. It does look like a strange combination of JavaScript and HTML, but it's actually all JS.
 
-```const element = <h1>Hello, world!```
+```javascript=
+const element = <h1>Hello, world!
+```
 
 Expressions in JSX can easily take HTML attributes:
-```
+```javascript=
 const myId = 'test'
 const element = <h1 id={myId}>Hello, world!</h1> 
 ```
@@ -24,7 +26,7 @@ There are 2 things we need to be aware of. Attributes with a - dash are converte
 
 **If you want to render two siblings, they need to be wrapped into a div or any other singular container. Example below:** 
 
-```
+```jsx
 <div>
     <BlogPostList />
     <Sidebar />
@@ -37,7 +39,7 @@ Note, a browser **cannot** execute javascript files contanining JSX. Therefor it
 JSX is optional because to every JSX line, a corresponding plain JS alternative is available. Here are two examples showing how they relate to each other.
 
 **Plain JS**
-```
+```javascript=
 ReactDOM.render(
   React.DOM.div(
     { id: 'test' },
@@ -48,7 +50,7 @@ ReactDOM.render(
 )
 ```
 **JSX**
-```
+```jsx=
 ReactDOM.render(
   <div id="test">
     <h1>A title</h1>
@@ -72,14 +74,14 @@ Basics:
 🟢 The easiest way to add CSS to JSX is to simply use classes. 
 
 Here's an example of how it will look when you apply classes to a bit of JSX with html syntax:
-```
+```jsx=
 const Button = () => {
   return <button className="button">A button</button>
 }
 ```
 🟢 A second method is to write the CSS inline by attaching it directly to the JSX element.
 
-```
+```jsx=
 const Button = () => {
   return <button style={{ backgroundColor: 'yellow' }}>A button</button>
 }
@@ -89,7 +91,7 @@ The mustache (double curly braces) signifies that we are passing in a JS object.
 
 🟢 Yet another way is to create a variable for the style and pass it into an element like this:
 
-```
+```jsx=
 const buttonStyle = { backgroundColor: 'yellow' }
 const Button = () => {
   return <button style={buttonStyle}>A button</button>
@@ -108,19 +110,19 @@ For more advanced needs, CSS-in-JS solutions like Styled Components or Emotion a
 JSX forces automatic escapes to prevent the danger posed from cross site scripting attacks. Because of this, sometimes issues arise when using HTML entities.
 
 In order to overcome these issues we need to move HTML entities outside the expression.
-```
+```htmlmixed=
 <p>{'&copy; 2017'}</p>
 ```
 This doesn't work, because it's escaped.
 
 So we take this approach to fix the issue. the entity is moved outside the expression.
-```
+```htmlembedded=
 <p>&copy; 2017</p>
 ```
 
 
 Probably the best way, is to just look up the Unicode string and use that instead.
-```
+```htmlmixed=
 <p>{'\u00A9 2017'}</p>
 ```
 ## White space in JSX
@@ -132,7 +134,7 @@ To add white space in JSX there are 2 rules:
 2.Verical spaces are totally eliminated
 
 Examples:
-```
+```htmlembedded=
 <p>
   Something
   becomes
@@ -140,11 +142,11 @@ Examples:
 </p>
 ```
 Becomes
-```
+```htmlembedded=
 <p>Somethingbecomesthis</p>
 ```
 So what about when we NEED to add whitespace?
-```
+```htmlmixed=
 <p>
   Something
   {' '}becomes
@@ -160,13 +162,13 @@ Spread attributes
 It's common to assign variables to attributes in JSX have a look at the examples below:
 
 Instead of doing it manually:
-```
+```htmlmixed=
 <div>
   <BlogPost title={data.title} date={data.date} />
 </div>
 ```
 Use the spread operator to clone the data into your element.
-```
+```htmlmixed=
 <div>
   <BlogPost {...data} />
 </div>
@@ -175,7 +177,8 @@ Use the spread operator to clone the data into your element.
 
 If you have a set of elements you need to loop through to generate a JSX partial, you create a loop, and then add JSX to an array.
 
-```const elements = [] //..some array
+```jsx=
+const elements = [] //..some array
 
 const items = []
 
@@ -185,7 +188,7 @@ for (const [index, value] of elements.entries()) {
 ```
 
 When rendering JSX you can embed the items array simply by wrapping it up with curly braces:
-```
+```jsx=
 const elements = ['one', 'two', 'three'];
 
 const items = []
@@ -201,7 +204,7 @@ return (
 )
 ```
 Now instead of using a for loop we can use the .map method instead and reduce the amount of code written. It's much cleaner now.
-```
+```jsx=
 const elements = ['one', 'two', 'three'];
 return (
   <ul>

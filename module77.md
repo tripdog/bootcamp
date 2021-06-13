@@ -11,7 +11,7 @@ A component is a chunk of an interface. For example, a typical blog usually has 
 In react, everything is a component and there are 2 ways to define a component:
 1. A function based component
 
-```javascript
+```{r, attr.source='.numberLines'}javascript
 const BlogPostExcerpt = () => {
 return (
     <div>

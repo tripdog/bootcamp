@@ -47,7 +47,7 @@ Props = properties. It's how components get their properties. Starting with the 
 
 With function components, properties are all that is passed, all you have to do is add the props as the argument to the function.
 
-```jsx=
+```jsx
 const BlogPostExcerpt = props => {
   return (
     <div>
@@ -70,7 +70,7 @@ const BlogPostExcerpt = props => {
 
 When intializing a component, we pass the props in a way that resembles HTML attributes:
 
-```jsx=
+```jsx
 const desc = 'A description'
 //
 <BlogPostExcerpt title="A blog post" description={ desc } />
@@ -83,7 +83,7 @@ In the above example a plain string is passed as the title and the description a
 
 A specil kind of prop are children. They contain the value of anything that's passed through the component. Consider this snippet:
 
-```jsx=
+```jsx
 <BlogPostExcerpt title="A blog post" description="{ desc }">Something, blah blah.</BlogPostExcerpt>
 ```
 Here, inside BlogPostExcerpt we can access "Something, something else." by looking up props.children.
@@ -105,7 +105,7 @@ In React or any other component based framework or library, all of them require 
 :zap: We manage state in react by using **hooks.** The first hook we learn is the **useState.**
 
 Import it from React like so:
-```jsx=
+```jsx
 import React, { useState } from 'react'
 ```
 :bulb: **useState is an API** we use it to create a new state variable and once that is done, we have a way to alter it.
@@ -113,11 +113,11 @@ import React, { useState } from 'react'
     * It then returns an array containing the state variable, and the function you call the alter the state. Use descrurcturing to access each individual item, like this: 
 
 
-```jsx=
+```jsx
 const [count, setCount] = useState(0)
 ```
 Here's a more practical example:
-```jsx=
+```jsx
 import { useState} from 'react'
 
 const Counter = () => {
@@ -152,11 +152,11 @@ return (
 In a React component, props are variables passed to it by its parent component. **State** on the other hand is still variables, but directly initialized and managed by the component. 
 
 The state can be initialized by the props. For example, a parent component might include a child component by calling:
-```jsx=
+```jsx
 <childComponent />
 ```
 The parent can pass a prop by using this syntax:
-```jsx=
+```jsx
 <ChildComponent color=green />
 ```
 Inside the ChildComponent constructor we could access the prop:
@@ -174,7 +174,7 @@ Most of your components will just display some kind of information based on the 
 ---
 ## Component initialization and unmounting
 The useEffect hook allows us to run specific code when the component is mounted or re-rendered. Consider the following snippet:
-```jsx=
+```jsx
 useEffect(()=>{
 //your code
 }, [])
@@ -183,7 +183,7 @@ When you call the hook, pass it to a function. The function will be run by React
 
 For example, we can call a getData() function we have defined in the component to fetch some data every time the component is rendered. Example:
 
-```jsx=
+```jsx
 useEffect(()=>{
 getData()
 })
@@ -193,7 +193,7 @@ In this case, the getData( ) function is executed everytime the component is re-
 You can add a second parameter to useEffect, an array, which says, "only run the function if the variables in the array are changed."
 
 if you pass an empty array, the function will only be executed the first time the component is mounted, and not when the props change.
-```jsx=
+```jsx
 useEffect(()=>{
 getData()
 }, [])
@@ -201,7 +201,7 @@ getData()
 This is useful for one-time initialization, **like fetching data from an API**
 
 We can add into that array a list of variables, and the function will be run when the component is added to the page first, and when any of those variables change.
-```jsx=
+```jsx
 let name, address
 
 useEffect(()=>{

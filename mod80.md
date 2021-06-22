@@ -1,5 +1,8 @@
-# Introduction to Next.js
-:zap: :bulb: 🟢 :warning: 🟠 
+# Introduction to Next.js Module #80
+
+[![hackmd-github-sync-badge](https://hackmd.io/PKORjreRS0WJ_ZvSF0BBIw/badge)](https://hackmd.io/PKORjreRS0WJ_ZvSF0BBIw)
+
+
 
 The main differences between an app created by create-react-app and a React app created by Next.js is that it vastly improves SEO performance and load times since the content is rendered server-side before it loads in the browser.
 
@@ -42,7 +45,7 @@ The command asks the application name (and creates a new folder for you with tha
 "build": "next build",
 "start": "next start",
 },
-"deependencies":{
+"dependencies":{
 "next": "9.1.3",
 "react": "16.11.0",
 "react-dom": "16.11.0"
